@@ -15,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download Amnezia IP Lite list
+      - name: Download Amnezia IP list
         run: |
           curl -fL \
             https://github.com/lib4u/amnezia-tunneling-ru/releases/download/latest/amnezia-ip.json \
-            -o amnezia-ip-lite.json
+            -o amnezia-ip.json
 
       - name: Convert to GL.iNet format
         run: |
@@ -30,7 +30,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          rm amnezia-ip-lite.json
+          rm amnezia-ip.json
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
